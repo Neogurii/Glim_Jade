@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="Glim.css">
+
+    <!--DM SANS FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!--API AUDIO-->
+    <audio id="validation-sound" src="./Sound/son_validation.mp3" preload="auto"></audio>
+    <audio id="bank-sound" src="./Sound/son_autorbank.mp3" preload="auto"></audio>
+    <audio id="cross-sound" src="./Sound/son_cross.mp3" preload="auto"></audio>
+    <title>Glim</title>
+</head>
+
+<body>
+    <div id="page_container" class="page_container">
+        <svg id="menu_cancel" style="z-index: 99999;" width="18" height="18" viewBox="0 0 18 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M2.64153 0.434842L8.85816 6.65147L15.0426 0.467053C15.1792 0.32165 15.3437 0.205333 15.5264 0.125077C15.7091 0.0448207 15.906 0.00227784 16.1055 0C16.5327 0 16.9423 0.16968 17.2443 0.471712C17.5464 0.773744 17.7161 1.18339 17.7161 1.61053C17.7198 1.80798 17.6832 2.00412 17.6084 2.1869C17.5336 2.36969 17.4223 2.53527 17.2812 2.67347L11.0163 8.85789L17.2812 15.1228C17.5466 15.3825 17.7023 15.7342 17.7161 16.1053C17.7161 16.5324 17.5464 16.942 17.2443 17.2441C16.9423 17.5461 16.5327 17.7158 16.1055 17.7158C15.9003 17.7243 15.6955 17.69 15.5042 17.6152C15.3129 17.5403 15.1392 17.4265 14.9943 17.2809L8.85816 11.0643L2.65763 17.2648C2.52155 17.4054 2.35898 17.5176 2.17931 17.595C1.99963 17.6724 1.80641 17.7135 1.61079 17.7158C1.18365 17.7158 0.774006 17.5461 0.471974 17.2441C0.169942 16.942 0.000262043 16.5324 0.000262043 16.1053C-0.00349289 15.9078 0.0331416 15.7117 0.107918 15.5289C0.182694 15.3461 0.294034 15.1805 0.435104 15.0423L6.70005 8.85789L0.435104 2.59295C0.169665 2.33326 0.0140153 1.98161 0.000262043 1.61053C0.000262043 1.18339 0.169942 0.773744 0.471974 0.471712C0.774006 0.16968 1.18365 0 1.61079 0C1.99731 0.00483158 2.36774 0.161053 2.64153 0.434842Z"
+                fill="#FF842B" />
+        </svg>
+        <div id="menu-container">
+            <img id="menu_arrow" src="./Icons/ImageFleche.png" alt="Menu Arrow">
+            <div id="menu">
+                <div class="divBtn">
+                    <div class="btn">
+                        <img src="./Icons/Widget_1_haut.svg" style="height: 5rem; margin-right: 1rem;">
+                        <div class="btn_text_align">
+                            <h5>Solde en attente</h5>
+                            <h6>3643 €</h6>
+                        </div>
+                    </div>
+
+                    <div class="btn" style="padding-left: 2rem;">
+                        <img src="./Icons/widget_2_milieu.svg" style="height: 2.9rem; margin-right: 2rem;">
+                        <div class="btn_text_align">
+                            <h5>Recette du jour</h5>
+                            <h6>350.40 €</h6>
+                        </div>
+                    </div>
+
+                    <div class="btn_align">
+                        <div class="btn">
+                            <img src="./Icons/widget_3_droit.svg" style="height: 2.1rem;">
+                        </div>
+
+                        <div class="btn" style="padding-right: 3.3rem; padding-left: 1.5rem;">
+                            <img src="./Icons/widget_3_gauche.svg" style="height: 2.1rem; margin-right: 1rem;">
+                            <h6>98 <span style="font-family: 'DM Sans', sans-serif; font-weight: 800;">%</span></h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn_align" style="margin-top: 0.3rem;">
+                    <button id="button-end-container" class="btn" style="padding-left: 1.9rem; padding-right: 2.4rem;">
+                        <img src="./Icons/fleche_retour.svg" alt="Button Image"
+                            style="height: 1.7rem; margin-right: 1rem;">
+                        <h5>Accueil</h5>
+                    </button>
+
+                    <div class="btn">
+                        <img src="./Icons/Calculette.svg" style="height: 2.5rem;">
+                    </div>
+                </div>
+
+                <img id="menu-close" src="./Icons/Barre_menu_ferme.png" alt="Close Menu" style="margin-top: 1.5rem;">
+            </div>
+        </div>
+
+        <!--GIF Yeux-->
+        <div class="container_yeux" style="position: relative;">
+            <img id="yeux_bank" class="gif_yeux" src="gifs_glim/Autor_Bznk copie.gif"
+                style="display: none; position: absolute;">
+            <img id="yeux_code_mauvais" class="gif_yeux" src="gifs_glim/Code_Faux.gif"
+                style="display: none; position: absolute;">
+            <img id="yeux_detection_01" class="gif_yeux" src="gifs_glim/Detection_Part_1 copie.gif"
+                style="display: none; position: absolute;">
+            <img id="yeux_detection_02" class="gif_yeux" src="gifs_glim/Detection_Part_2 copie.gif"
+                style="display: none; position: absolute;">
+            <img id="yeux_detection_03" class="gif_yeux" src="./Icons/logo_carte.svg"
+                style="display: none; position: absolute;">
+            <img id="yeux_endormi" class="gif_yeux" src="gifs_glim/Endormi copie.gif"
+                style="display: none; position: absolute;">
+            <img id="yeux_espiegle" class="gif_yeux" src="gifs_glim/Espiegle_copie.gif"
+                style="display: none; position: absolute;">
+            <img id="yeux_joyeux_paumettes" class="gif_yeux" src="gifs_glim/Joyeux_paumettes_copie.gif"
+                style="display: none; position: absolute;">
+            <img id="yeux_neutre" class="gif_yeux" src="gifs_glim/Neutre copie.gif"
+                style="display: none; position: absolute;">
+            <img id="yeux_validation" class="gif_yeux" src="gifs_glim/Valdation_copie.gif"
+                style="display: none; transform: translateY(-8px); position: absolute;">
+        </div>
+
+        <!--Clavier JS-->
+        <div class="numAndCode">
+            <div id="numDiv">
+                <p id="num">00.00</p>€
+            </div>
+            <p id="code"></p>
+        </div>
+
+        <p id="textDisplay"></p>
+
+        <div id="clavier" class="clavier clavier_wrapper">
+            <a class="clavier_one">1</a>
+            <a class="clavier_two">2</a>
+            <a class="clavier_three">3</a>
+            <a class="clavier_zero">0</a>
+            <a class="clavier_four">4</a>
+            <a class="clavier_five">5</a>
+            <a class="clavier_six">6</a>
+            <a class="clavier_X"><img src="./Icons/cross.svg" style="height: 1.3rem;"></a>
+            <a class="clavier_seven">7</a>
+            <a class="clavier_eight">8</a>
+            <a class="clavier_nine">9</a>
+            <a class="clavier_check"><img src="./Icons/check.svg" style="height: 1.2rem;"></a>
+        </div>
+
+        <div id="clavier_code" class="clavier clavier_wrapper">
+            <a class="code_one">1</a>
+            <a class="code_two">2</a>
+            <a class="code_three">3</a>
+            <a class="code_zero">0</a>
+            <a class="code_four">4</a>
+            <a class="code_five">5</a>
+            <a class="code_six">6</a>
+            <a class="code_X"><img src="./Icons/cross.svg" style="height: 1.3rem;"></a>
+            <a class="code_seven">7</a>
+            <a class="code_eight">8</a>
+            <a class="code_nine">9</a>
+            <a class="code_check"><img src="./Icons/check.svg" style="height: 1.2rem;"></a>
+        </div>
+
+        <button id="button_clavier" style="width: 3rem; height: 3rem;"></button>
+    </div>
+</body>
+
+<script src="glim.js"></script>
+
+</html>
