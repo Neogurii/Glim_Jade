@@ -60,8 +60,8 @@ html{
 
 .container_yeux img {
     margin: 7rem 0 0 0;
-    width: 78%;
-    height: min-content;
+    width: 78vw;
+    height: auto;
 }
 
 #yeux_detection_02{
