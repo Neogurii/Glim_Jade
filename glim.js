@@ -214,7 +214,7 @@ $(document).ready(function () {
         updateEyes();
         $(".numAndCode").css("justify-content", "center");
         $("#clavier").hide();
-        setTimeout(showEspiegleState, 2000);
+        setTimeout(showEspiegleState, 3500);
         setUpCodeEvents();
     }
 
