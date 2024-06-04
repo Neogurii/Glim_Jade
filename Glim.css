@@ -1,4 +1,5 @@
 *{
+    font-size: calc(15px + 0.390625vw);
     margin: 0;
     padding: 0;
 }
@@ -29,11 +30,11 @@ body {
     height: 100vh;
     background-color: black;
 }
-
+/*
 html{
     transform: rotate(180deg);
 }
-
+*/
 .page_container {
     position: relative;
 
@@ -48,7 +49,7 @@ html{
     background-position: center 2rem;
     background-size: contain;
 
-    height: 60vh;
+    height: 65vh;
 }
 
 .container_yeux {
@@ -72,7 +73,7 @@ html{
 
 #yeux_detection_03{
     position: absolute;
-    top: 20rem;
+    top: 15rem;
 }
 
 #clavier,
@@ -87,9 +88,9 @@ html{
     align-items: center;
 }
 
-#numDiv{
+#numDiv, #num{
     display: flex;
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: #5A70D5;
 }
 
@@ -196,7 +197,7 @@ h6{
 
 .btn{
     display: flex;
-    padding: 1rem 1rem;
+    padding: 0.75rem 1rem;
     border-radius: 20px;
     box-shadow: #0000002b 2px 2px 59px;
     align-items: center;

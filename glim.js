@@ -24,9 +24,24 @@ $(document).ready(function () {
 
     // Sounds
     var bank_sound = document.getElementById("bank-sound");
-    bank_sound.loop = true;
     var validation_sound = document.getElementById("validation-sound");
     var cross_sound = document.getElementById("cross-sound");
+
+    // Précharger les sons
+    var sounds = [bank_sound, validation_sound, cross_sound];
+    sounds.forEach(function (sound) {
+        sound.load();
+    });
+
+    var playCount = 0;
+
+    // Ajouter un gestionnaire d'événement pour jouer le son bank_sound deux fois
+    bank_sound.addEventListener('ended', function () {
+        playCount++;
+        if (playCount < 2) {
+            bank_sound.play();
+        }
+    });
 
     //Code
     var correctCode = "2012";
@@ -274,6 +289,7 @@ $(document).ready(function () {
         });
         $(".code_X").off("click").on("click", function () {
             $("#code").text('');
+            cross_sound.play();
             enteredCode = "";
         });
         $(".code_check").off("click").on("click", function () {
@@ -331,10 +347,9 @@ $(document).ready(function () {
 
         $("#menu_cancel").show();
         updateEyes();
-        timeoutBankSound = setTimeout(() => {
-            bank_sound.play()
-        }, 1000);
-        timeoutValidationState = setTimeout(showValidationState, 4000);
+        playCount = 0; // Réinitialiser le compteur de lecture
+        bank_sound.play(); // Démarrer la lecture du son
+        timeoutValidationState = setTimeout(showValidationState, 3000);
     }
 
     function showValidationState() {
@@ -386,6 +401,7 @@ $(document).ready(function () {
 
         //Réinitialiser le GIF Yeux_Espiegle
         $("#yeux_espiegle").attr("src", $("#yeux_espiegle").attr("src"));
+        $("#yeux_validation").attr("src", $("#yeux_validation").attr("src"));
 
         neutre();
     }
