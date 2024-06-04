@@ -187,6 +187,8 @@ $(document).ready(function () {
         });
         $(".clavier_X").off("click").on("click", function () {
             $("#num").text('00.00');
+            cross_sound.pause();
+            cross_sound.currentTime = 0;
             cross_sound.play();
         });
         $(".clavier_check").off("click").on("click", myFunctionValidate);
@@ -289,6 +291,8 @@ $(document).ready(function () {
         });
         $(".code_X").off("click").on("click", function () {
             $("#code").text('');
+            cross_sound.pause();
+            cross_sound.currentTime = 0;
             cross_sound.play();
             enteredCode = "";
         });
@@ -357,7 +361,7 @@ $(document).ready(function () {
         hideMenu();
         states.yeux_validation = true;
         states.textDisplay = true;
-        textDisplay.innerText = "Paiement validé";
+        textDisplay.innerText = "Paiement validé !";
 
         bank_sound.pause();
         bank_sound.currentTime = 0;

@@ -30,11 +30,11 @@ body {
     height: 100vh;
     background-color: black;
 }
-/*
+
 html{
     transform: rotate(180deg);
 }
-*/
+
 .page_container {
     position: relative;
 
@@ -190,7 +190,7 @@ h5{
 
 h6{
     font-family: 'coolvetica';
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 500;
     color: #0A1032;
 }
