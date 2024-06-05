@@ -417,4 +417,16 @@ $(document).ready(function () {
 
     // Initialisation de l'état de veille au chargement de la page (C'est la que tout commence)
     veille();
+
+    // Ajouter un gestionnaire de clic global pour initialiser les sons après une interaction utilisateur
+    $(document).one("click", function () {
+        sounds.forEach(function (sound) {
+            sound.play().then(() => {
+                sound.pause();
+                sound.currentTime = 0;
+            }).catch(error => {
+                console.error("Erreur lors de la lecture du son:", error);
+            });
+        });
+    });
 });
