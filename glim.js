@@ -191,10 +191,8 @@ $(document).ready(function () {
             displayPrix(0);
         });
         $(".clavier_X").off("click").on("click", function () {
-            $("#num").text('00.00');
-            cross_sound.pause();
-            cross_sound.currentTime = 0;
             cross_sound.play();
+            $("#num").text('00.00');
         });
         $(".clavier_check").off("click").on("click", myFunctionValidate);
     }
@@ -295,11 +293,9 @@ $(document).ready(function () {
             updateCode(0)
         });
         $(".code_X").off("click").on("click", function () {
+            cross_sound.play();
             $("#code").text('');
             enteredCode = "";
-            cross_sound.pause();
-            cross_sound.currentTime = 0;
-            cross_sound.play();
         });
         $(".code_check").off("click").on("click", function () {
             if (enteredCode === correctCode && document.getElementById("code").innerText.length == 4) {
@@ -373,9 +369,7 @@ $(document).ready(function () {
 
         $("#menu_cancel").hide();
         updateEyes();
-        timeoutValidationState = setTimeout(() => {
-            validation_sound.play()
-        }, 800);
+        validation_sound.play()
         timeoutShowEspiegleState = setTimeout(end, 4000);
     }
 
