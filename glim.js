@@ -23,9 +23,14 @@ $(document).ready(function () {
     var idleTimeout;
 
     // Sounds
-    var bank_sound = document.getElementById("bank-sound");
-    var validation_sound = document.getElementById("validation-sound");
-    var cross_sound = document.getElementById("cross-sound");
+    const bank_sound = document.getElementById("bank-sound");
+    const validation_sound = document.getElementById("validation-sound");
+    const cross_sound = document.getElementById("cross-sound");
+
+    // Autoplay on IOS
+    bank_sound.autoplay = true;
+    validation_sound.autoplay = true;
+    cross_sound.autoplay = true
 
     // Précharger les sons
     var sounds = [bank_sound, validation_sound, cross_sound];
@@ -187,11 +192,9 @@ $(document).ready(function () {
         });
         $(".clavier_X").off("click").on("click", function () {
             $("#num").text('00.00');
-            setTimeout(() => {
-                cross_sound.pause();
-                cross_sound.currentTime = 0;
-                cross_sound.play();
-            }, 1);
+            cross_sound.pause();
+            cross_sound.currentTime = 0;
+            cross_sound.play();
         });
         $(".clavier_check").off("click").on("click", myFunctionValidate);
     }
@@ -294,11 +297,9 @@ $(document).ready(function () {
         $(".code_X").off("click").on("click", function () {
             $("#code").text('');
             enteredCode = "";
-            setTimeout(() => {
-                cross_sound.pause();
-                cross_sound.currentTime = 0;
-                cross_sound.play();
-            }, 1);
+            cross_sound.pause();
+            cross_sound.currentTime = 0;
+            cross_sound.play();
         });
         $(".code_check").off("click").on("click", function () {
             if (enteredCode === correctCode && document.getElementById("code").innerText.length == 4) {
@@ -355,10 +356,8 @@ $(document).ready(function () {
 
         $("#menu_cancel").show();
         updateEyes();
-        setTimeout(() => {
-            playCount = 0; // Réinitialiser le compteur de lecture
-            bank_sound.play(); // Démarrer la lecture du son
-        }, 1);
+        playCount = 0; // Réinitialiser le compteur de lecture
+        bank_sound.play(); // Démarrer la lecture du son
         timeoutValidationState = setTimeout(showValidationState, 3000);
     }
 
@@ -375,9 +374,7 @@ $(document).ready(function () {
         $("#menu_cancel").hide();
         updateEyes();
         timeoutValidationState = setTimeout(() => {
-            setTimeout(() => {
-                validation_sound.play()
-            }, 1);
+            validation_sound.play()
         }, 800);
         timeoutShowEspiegleState = setTimeout(end, 4000);
     }
