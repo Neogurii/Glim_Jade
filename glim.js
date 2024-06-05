@@ -187,9 +187,11 @@ $(document).ready(function () {
         });
         $(".clavier_X").off("click").on("click", function () {
             $("#num").text('00.00');
-            cross_sound.pause();
-            cross_sound.currentTime = 0;
-            cross_sound.play();
+            setTimeout(() => {
+                cross_sound.pause();
+                cross_sound.currentTime = 0;
+                cross_sound.play();
+            }, 1);
         });
         $(".clavier_check").off("click").on("click", myFunctionValidate);
     }
@@ -291,10 +293,12 @@ $(document).ready(function () {
         });
         $(".code_X").off("click").on("click", function () {
             $("#code").text('');
-            cross_sound.pause();
-            cross_sound.currentTime = 0;
-            cross_sound.play();
             enteredCode = "";
+            setTimeout(() => {
+                cross_sound.pause();
+                cross_sound.currentTime = 0;
+                cross_sound.play();
+            }, 1);
         });
         $(".code_check").off("click").on("click", function () {
             if (enteredCode === correctCode && document.getElementById("code").innerText.length == 4) {
@@ -351,8 +355,10 @@ $(document).ready(function () {
 
         $("#menu_cancel").show();
         updateEyes();
-        playCount = 0; // Réinitialiser le compteur de lecture
-        bank_sound.play(); // Démarrer la lecture du son
+        setTimeout(() => {
+            playCount = 0; // Réinitialiser le compteur de lecture
+            bank_sound.play(); // Démarrer la lecture du son
+        }, 1);
         timeoutValidationState = setTimeout(showValidationState, 3000);
     }
 
@@ -369,7 +375,9 @@ $(document).ready(function () {
         $("#menu_cancel").hide();
         updateEyes();
         timeoutValidationState = setTimeout(() => {
-            validation_sound.play()
+            setTimeout(() => {
+                validation_sound.play()
+            }, 1);
         }, 800);
         timeoutShowEspiegleState = setTimeout(end, 4000);
     }
